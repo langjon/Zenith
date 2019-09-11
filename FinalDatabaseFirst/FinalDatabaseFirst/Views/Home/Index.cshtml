@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body style="background-color: lightgray">
+
+    <h2>SELECT TABLE TO MANAGE:</h2>
+
+
+    <table style="width: 99.5%; text-align: center;">
+        <tr>
+            <td>
+                <h3>Employee</h3>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">
+
+                    <img src="~/employee.PNG" />
+                </a>
+            </td>
+            <td></td>
+            <td>
+                <h3>Customer</h3>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="Index">
+
+                    <img src="~/customer.PNG" />
+                </a>
+            </td>
+            <td></td>
+            <td>
+                <h3> CreditCard</h3>
+                <a class="nav-link text-dark" asp-area="" asp-controller="CreditCards" asp-action="Index">
+
+                    <img src="~/creditCard.PNG" />
+                </a>
+            </td>
+        </tr>
+        <br />
+        <tr><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+            <td>
+                <h3>Order</h3>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">
+
+                    <img src="~/icon_packaging.jpg" />
+                </a>
+            </td>
+            <td></td>
+            <td>
+                <h3>Products</h3>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">
+
+                    <img src="~/icon_pos.jpg" />
+                </a>
+            </td>
+            <td></td>
+            <td>
+                <h3>Payment</h3>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Payments" asp-action="Index">
+
+                    <img src="~/icon_design.jpg" />
+                </a>
+            </td>
+        </tr>
+
+    </table>
+    <br />
+    <br />
+    <h4><p>Access your API: <a href="~/api.html">Click here!</a></p></h4>
+
+</body>

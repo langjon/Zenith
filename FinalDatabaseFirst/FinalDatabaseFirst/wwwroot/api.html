@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <style>
+        input[type='submit'], button, [aria-label] {
+            cursor: pointer;
+        }
+
+        #spoiler {
+            display: none;
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: darkgray;
+            color: white;
+            width: 200px;
+        }
+
+        td {
+            background-color: aliceblue;
+            border: 1px solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body style="background-color: lightgray">
+    <h1>Products API</h1>
+    <p id="counter"></p>
+
+    <table>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Type</th>
+            <th>Product Size</th>
+            <th>Product Material</th>
+            <th>Product Quantity</th>
+            <th>Product Description</th>
+        </tr>
+
+        <tbody id="Students"></tbody>
+    </table>
+   
+    <a href="/Home">BACK</a>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="site.js"></script>
+    <br />
+</body>
+</html>
