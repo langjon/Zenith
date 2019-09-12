@@ -30,7 +30,8 @@ namespace FinalDatabaseFirst.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=finalAssig;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=zenithcapstone.database.windows.net;Database=ZenithCapstoneDB;User=zenith;Password=C@pst0ne!;Trusted_Connection=False;Encrypt=True;");
+                //optionsBuilder.UseSqlServer("Server=(zenithcapstone.database.windows.net)\\MSSQLLocalDB;Database=ZenithCapstoneDB;User=zenith;Password=C@pst0ne!;Trusted_Connection=True;");
             }
         }
 
@@ -57,7 +58,7 @@ namespace FinalDatabaseFirst.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.CreditCardSecurityCode)
-                    .HasMaxLength(50)
+                    .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.CusId)
@@ -92,7 +93,7 @@ namespace FinalDatabaseFirst.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.CusPhone)
-                    .HasMaxLength(50)
+                    .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.CusPostalCode)

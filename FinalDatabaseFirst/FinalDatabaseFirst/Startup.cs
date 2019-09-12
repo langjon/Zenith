@@ -26,7 +26,7 @@ namespace FinalDatabaseFirst
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Server=(localdb)\MSSQLLocalDB;Database=finalAssig;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Server=zenithcapstone.database.windows.net;Database=ZenithCapstoneDB;User=zenith;Password=C@pst0ne!;Trusted_Connection=False;Encrypt=True;ConnectRetryCount=0";
             services.AddDbContext<finalAssigContext>(options => options.UseSqlServer(connection));
             services.Configure<CookiePolicyOptions>(options =>
             {
