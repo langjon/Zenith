@@ -8,6 +8,7 @@ namespace FinalDatabaseFirst.Models
         public Customer()
         {
             CreditCard = new HashSet<CreditCard>();
+            CustomerLogin = new HashSet<CustomerLogin>();
         }
 
         public decimal CusId { get; set; }
@@ -17,6 +18,7 @@ namespace FinalDatabaseFirst.Models
         public string CusAddress { get; set; }
         public string CusPostalCode { get; set; }
 
+        public virtual ICollection<CustomerLogin> CustomerLogin { get; set; }
         public virtual ICollection<CreditCard> CreditCard { get; set; }
     }
 }

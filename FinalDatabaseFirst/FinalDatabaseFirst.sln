@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinalDatabaseFirst", "FinalDatabaseFirst\FinalDatabaseFirst.csproj", "{6305565C-37F0-430D-A084-0899F2C1F210}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalDatabaseFirst.Tests", "FinalDatabaseFirst.Tests\FinalDatabaseFirst.Tests.csproj", "{BB798C6C-8DDF-4E09-B9E0-12E980859B13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinalDatabaseFirst.Tests", "FinalDatabaseFirst.Tests\FinalDatabaseFirst.Tests.csproj", "{BB798C6C-8DDF-4E09-B9E0-12E980859B13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

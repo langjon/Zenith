@@ -24,6 +24,7 @@ namespace FinalDatabaseFirst.Models
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Production> Production { get; set; }
         public virtual DbSet<Shipping> Shipping { get; set; }
+        public virtual DbSet<CustomerLogin> CustomerLogin { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -133,6 +134,9 @@ namespace FinalDatabaseFirst.Models
 
             modelBuilder.Entity<EmployeeLogin>(entity =>
             {
+                entity.HasKey(e => e.EmployeeLoginId)
+                   .HasName("EmpLoginPK");
+
                 entity.Property(e => e.EmployeeLoginId)
                     .HasColumnName("EmployeeLoginID")
                     .HasColumnType("numeric(9, 0)");
@@ -149,6 +153,28 @@ namespace FinalDatabaseFirst.Models
                     .WithMany(p => p.EmployeeLogin)
                     .HasForeignKey(d => d.EmpId)
                     .HasConstraintName("FK__EmployeeL__EmpID__2D27B809");
+            });
+            modelBuilder.Entity<CustomerLogin>(entity =>
+            {
+                entity.HasKey(e => e.CusId)
+                   .HasName("CusLoginPK");
+
+                entity.Property(e => e.CusId)
+                   .HasColumnName("CusID")
+                   .HasColumnType("numeric(9, 0)");
+
+                entity.Property(e => e.UserName)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserPass)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Cust)
+                    .WithMany(p => p.CustomerLogin)
+                    .HasForeignKey(d => d.CusId)
+                    .HasConstraintName("FK__CustomerL__CusID__2D27B809");
             });
 
             modelBuilder.Entity<Orders>(entity =>

@@ -1,4 +1,5 @@
 ﻿const uri = "api/ApiProduct";
+const urlCustomer = "api/Customers"
 
 $(document).ready(function () {
 
@@ -7,7 +8,7 @@ $(document).ready(function () {
         url: uri,
         cache: false,
         success: function (data) {
-            const tBody = $("#Students");
+            const tBody = $("#Products");
             $(tBody).empty();
             $.each(data, function (key, item) {
                 const tr = $("<tr></tr>")
@@ -23,6 +24,29 @@ $(document).ready(function () {
             });
 
             products = data;
+        }
+    });
+    $.ajax({
+        type: "GET",
+        url: urlCustomer,
+        cache: false,
+        success: function (data) {
+            const tBody = $("#Customers");
+            $(tBody).empty();
+            $.each(data, function (key, item) {
+                const tr = $("<tr></tr>")
+                    .append($("<td></td>").text(item.cusId))
+                    .append($("<td></td>").text(item.cusName))
+                    .append($("<td></td>").text(item.cusPhone))
+                    .append($("<td></td>").text(item.cusEmail))
+                    .append($("<td></td>").text(item.cusAddress))
+                    .append($("<td></td>").text(item.cusPostalCode))
+
+                tr.appendTo(tBody);
+
+            });
+
+            customers = data;
         }
     });
 });
