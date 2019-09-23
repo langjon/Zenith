@@ -24,13 +24,15 @@ namespace FinalDatabaseFirst.Models
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Production> Production { get; set; }
         public virtual DbSet<Shipping> Shipping { get; set; }
+        public virtual DbSet<CustomerLogin> CustomerLogin { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=finalAssig;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=zenithcapstone.database.windows.net;Database=ZenithCapstoneDB;User=zenith;Password=C@pst0ne!;Trusted_Connection=False;Encrypt=True;");
+                //optionsBuilder.UseSqlServer("Server=(zenithcapstone.database.windows.net)\\MSSQLLocalDB;Database=ZenithCapstoneDB;User=zenith;Password=C@pst0ne!;Trusted_Connection=True;");
             }
         }
 
@@ -57,7 +59,7 @@ namespace FinalDatabaseFirst.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.CreditCardSecurityCode)
-                    .HasMaxLength(50)
+                    .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.CusId)
@@ -92,7 +94,7 @@ namespace FinalDatabaseFirst.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.CusPhone)
-                    .HasMaxLength(50)
+                    .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.CusPostalCode)
@@ -132,6 +134,9 @@ namespace FinalDatabaseFirst.Models
 
             modelBuilder.Entity<EmployeeLogin>(entity =>
             {
+                entity.HasKey(e => e.EmployeeLoginId)
+                   .HasName("EmpLoginPK");
+
                 entity.Property(e => e.EmployeeLoginId)
                     .HasColumnName("EmployeeLoginID")
                     .HasColumnType("numeric(9, 0)");
@@ -148,6 +153,28 @@ namespace FinalDatabaseFirst.Models
                     .WithMany(p => p.EmployeeLogin)
                     .HasForeignKey(d => d.EmpId)
                     .HasConstraintName("FK__EmployeeL__EmpID__2D27B809");
+            });
+            modelBuilder.Entity<CustomerLogin>(entity =>
+            {
+                entity.HasKey(e => e.CusId)
+                   .HasName("CusLoginPK");
+
+                entity.Property(e => e.CusId)
+                   .HasColumnName("CusID")
+                   .HasColumnType("numeric(9, 0)");
+
+                entity.Property(e => e.UserName)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserPass)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Cust)
+                    .WithMany(p => p.CustomerLogin)
+                    .HasForeignKey(d => d.CusId)
+                    .HasConstraintName("FK__CustomerL__CusID__2D27B809");
             });
 
             modelBuilder.Entity<Orders>(entity =>

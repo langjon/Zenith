@@ -21,14 +21,14 @@ namespace FinalDatabaseFirst.Controllers
             _context = context;
         }
 
-        // GET: api/APIStudents
+        // GET: api/APIProducts
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             return await _context.Product.ToListAsync();
         }
 
-        // GET: api/APIStudents/5
+        // GET: api/APIProducts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -42,7 +42,7 @@ namespace FinalDatabaseFirst.Controllers
             return products;
         }
 
-        // PUT: api/APIStudents/5
+        // PUT: api/APIProducts/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
@@ -72,7 +72,7 @@ namespace FinalDatabaseFirst.Controllers
             return NoContent();
         }
 
-        // POST: api/APIStudents
+        // POST: api/APIProduct
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
@@ -82,7 +82,7 @@ namespace FinalDatabaseFirst.Controllers
             return CreatedAtAction("GetProducts", new { id = product.ProdId}, product);
         }
 
-        // DELETE: api/APIStudents/5
+        // DELETE: api/APIProduct/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Product>> DeleteProduct(int id)
         {
@@ -105,75 +105,4 @@ namespace FinalDatabaseFirst.Controllers
     }
 }
 
-    /*[Route("api/[controller]")]
-    [ApiController]
-    public class APIProductController : Controller
-    {
-        private readonly finalAssigContext _context;
-        public APIProductController(finalAssigContext context)
-        {
-            _context = context;
-            if (_context.Product.Count() == 0)
-            {
-                _context.Product.Add(new Product { ProdType = "Box", ProdMaterial = "Kraft" });
-                _context.SaveChanges();
-            }
-        }
-        // GET: api/<controller>
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>>
-         GetTodoItems()
-        {
-            return await _context.Product.ToListAsync();
-        }
-
-        // GET: api/Book/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetTodoItem(long id)
-        {
-            var todoItem = await _context.Product.FindAsync(id);
-            if (todoItem == null)
-            {
-                return NotFound();
-            }
-            return todoItem;
-        }
-
-        // POST api/<controller>
-        [HttpPost]
-        public async Task<ActionResult<Product>> PostTodoItem(Product item)
-        {
-            _context.Product.Add(item);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetTodoItem), new { id = item.ProdId }, item);
-        }
-
-        // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(long id, Product item)
-        {
-            if (id != item.ProdId)
-            {
-                return BadRequest();
-            }
-            _context.Entry(item).State = EntityState.Modified;
-            await _context.SaveChangesAsync(); 
-            return NoContent();
-        }
-
-        // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(long id)
-        {
-            var todoItem = await _context.Product.FindAsync(id);
-            if (todoItem == null)
-            {
-                return NotFound();
-            }
-            _context.Product.Remove(todoItem);
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
-    }
-}
-*/
+    
