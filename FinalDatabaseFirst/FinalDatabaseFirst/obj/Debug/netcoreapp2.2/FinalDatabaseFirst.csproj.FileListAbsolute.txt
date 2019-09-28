@@ -129,3 +129,4 @@ C:\Capstone\ZenithCapstone\FinalDBFirst\FinalDatabaseFirst\FinalDatabaseFirst\ob
 C:\Capstone\ZenithCapstone\FinalDBFirst\FinalDatabaseFirst\FinalDatabaseFirst\obj\Debug\netcoreapp2.2\FinalDatabaseFirst.pdb
 C:\Capstone\ZenithCapstone\FinalDBFirst\FinalDatabaseFirst\FinalDatabaseFirst\obj\Debug\netcoreapp2.2\FinalDatabaseFirst.csproj.CopyComplete
 C:\Capstone\ZenithCapstone\FinalDBFirst\FinalDatabaseFirst\FinalDatabaseFirst\obj\Debug\netcoreapp2.2\Razor\Views\Home\Login.g.cshtml.cs
+C:\Capstone\ZenithCapstone\FinalDBFirst\FinalDatabaseFirst\FinalDatabaseFirst\obj\Debug\netcoreapp2.2\Razor\Views\EmpAccount\Login.g.cshtml.cs
