@@ -35,7 +35,7 @@ namespace FinalDatabaseFirst.Controllers
 
             var employeeLogin = await _context.EmployeeLogin
                 .Include(e => e.Emp)
-                .FirstOrDefaultAsync(m => m.EmployeeLoginId == id);
+                .FirstOrDefaultAsync(m => m.EmpId == id);
             if (employeeLogin == null)
             {
                 return NotFound();
@@ -67,6 +67,9 @@ namespace FinalDatabaseFirst.Controllers
             ViewData["EmpId"] = new SelectList(_context.Employee, "EmpId", "EmpId", employeeLogin.EmpId);
             return View(employeeLogin);
         }
+    }
+}
+         /*
 
         // GET: EmployeeLogins/Edit/5
         public async Task<IActionResult> Edit(decimal? id)
@@ -90,7 +93,7 @@ namespace FinalDatabaseFirst.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(decimal id, [Bind("EmployeeLoginId,EmpId,Pass")] EmployeeLogin employeeLogin)
+        public async Task<IActionResult> Edit(string id, [Bind("EmployeeLoginId,EmpId,Pass")] EmployeeLogin employeeLogin)
         {
             if (id != employeeLogin.EmployeeLoginId)
             {
@@ -121,6 +124,13 @@ namespace FinalDatabaseFirst.Controllers
             return View(employeeLogin);
         }
 
+        private bool EmployeeLoginExists(string employeeLoginId)
+        {
+            throw new NotImplementedException();
+        }
+    
+
+       
         // GET: EmployeeLogins/Delete/5
         public async Task<IActionResult> Delete(decimal? id)
         {
@@ -156,4 +166,5 @@ namespace FinalDatabaseFirst.Controllers
             return _context.EmployeeLogin.Any(e => e.EmployeeLoginId == id);
         }
     }
-}
+    */
+

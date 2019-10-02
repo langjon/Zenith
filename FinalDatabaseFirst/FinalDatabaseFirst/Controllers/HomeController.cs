@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FinalDatabaseFirst.Models;
+using Microsoft.AspNetCore.Authentication;
 
 namespace FinalDatabaseFirst.Controllers
 {
@@ -21,6 +22,7 @@ namespace FinalDatabaseFirst.Controllers
         }
         public IActionResult Login()
         {
+
             return View();
         }
 
@@ -29,5 +31,11 @@ namespace FinalDatabaseFirst.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public async Task<IActionResult> OnPostAsync()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToPage("Login");
+        }
+
     }
 }

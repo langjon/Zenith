@@ -138,8 +138,9 @@ namespace FinalDatabaseFirst.Models
                    .HasName("EmpLoginPK");
 
                 entity.Property(e => e.EmployeeLoginId)
-                    .HasColumnName("EmployeeLoginID")
-                    .HasColumnType("numeric(9, 0)");
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
 
                 entity.Property(e => e.EmpId)
                     .HasColumnName("EmpID")
