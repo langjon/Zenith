@@ -33,8 +33,9 @@ namespace FinalDatabaseFirst.Models
                 // Authenticate using the identity
                 var principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-               //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, new AuthenticationProperties { IsPersistent = loginData.RememberMe });
-                return RedirectToPage("Home/Index");
+                //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, new AuthenticationProperties { IsPersistent = loginData.RememberMe });
+                 return RedirectToPage("Home/Index");
+                // return RedirectToActionResult("Home/Index");
             }
             else
             {
